@@ -2,5 +2,24 @@
   "extends": "./tsconfig.base.json",
   "compileOnSave": false,
   "files": [],
-  "references": []
+  "references": [
+    {
+      "path": "./apps/hr-e2e"
+    },
+    {
+      "path": "./apps/hr"
+    },
+    {
+      "path": "./libs/shared-lib"
+    },
+    {
+      "path": "./components/shared-components"
+    },
+    {
+      "path": "./apps/core-e2e"
+    },
+    {
+      "path": "./apps/core"
+    },
+  ]
 }
