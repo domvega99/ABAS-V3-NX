@@ -1,7 +1,6 @@
 import { Box } from '@mui/material';
 import Alert from '@mui/material/Alert';
 import Snackbar from '@mui/material/Snackbar';
-import * as React from 'react';
 
 interface SnackbarProps {
   open: boolean;
@@ -10,19 +9,19 @@ interface SnackbarProps {
   onClose: () => void;
 }
 
-const SingleSnackbar: React.FC<SnackbarProps> = ({
+const SingleSnackbar = ({
   open,
   message,
   severity,
   onClose,
-}) => {
+}: SnackbarProps) => {
   return (
     <Box sx={{ display: 'flex', justifyContent: 'center' }}>
       <Snackbar
         open={open}
         autoHideDuration={5000}
         onClose={onClose}
-        anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
+        anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
       >
         <Alert
           onClose={onClose}

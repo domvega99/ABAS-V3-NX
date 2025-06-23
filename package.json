@@ -29,8 +29,11 @@
     "@types/node": "^20.0.0",
     "@types/react": "19.0.0",
     "@types/react-dom": "19.0.0",
+    "@types/react-is": "19.0.0",
+    "@types/styled-components": "5.1.26",
     "autoprefixer": "10.4.13",
     "babel-jest": "^29.7.0",
+    "babel-plugin-styled-components": "1.10.7",
     "cypress": "^14.2.1",
     "eslint": "^9.8.0",
     "eslint-config-next": "^15.2.4",
@@ -67,12 +70,16 @@
     "@reduxjs/toolkit": "^2.8.2",
     "@tabler/icons-react": "^3.34.0",
     "cookies-next": "^6.0.0",
+    "formik": "^2.4.6",
     "jsonwebtoken": "^9.0.2",
     "lucide-react": "^0.513.0",
     "next": "~15.2.4",
     "react": "19.0.0",
     "react-dom": "19.0.0",
     "react-helmet-async": "^2.0.5",
-    "react-redux": "^9.2.0"
+    "react-is": "19.0.0",
+    "react-redux": "^9.2.0",
+    "styled-components": "5.3.6",
+    "yup": "^1.6.1"
   }
 }

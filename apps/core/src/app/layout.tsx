@@ -1,5 +1,5 @@
 'use client'
-// import ThemeContextProvider from "@/utils/context/ModeContext";
+import { ModeContextProvider } from "@abasv3-nx/themes";
 // import { useEffect, useState } from "react";
 // import LoadingScreen from "./components/shared/LoadingScreen";
 // import "./globals.css";
@@ -20,9 +20,9 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
       <body>
         {/* {loading && <LoadingScreen />} */}
         <Provider store={store}>
-          {/* <ThemeContextProvider> */}
+          <ModeContextProvider>
             {children}
-          {/* </ThemeContextProvider> */}
+          </ModeContextProvider>
         </Provider>
       </body>
     </html>

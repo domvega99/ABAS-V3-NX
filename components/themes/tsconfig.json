@@ -9,9 +9,5 @@
       "path": "./tsconfig.spec.json"
     }
   ],
-  "extends": "../../tsconfig.base.json",
-  "compilerOptions": {
-    "types": [],
-    "lib": ["DOM", "ESNext"]
-  }
+  "extends": "../../tsconfig.base.json"
 }
