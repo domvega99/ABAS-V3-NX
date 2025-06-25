@@ -11,4 +11,6 @@ export * from './lib/state/store';
 export * from './lib/state/slice/authSlice';
 export * from './lib/state/slice/userSlice';
 
+export * from './lib/apiConfig';
+
 

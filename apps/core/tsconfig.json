@@ -39,12 +39,13 @@
   "include": [
     "../../apps/core/.next/types/**/*.ts",
     "../../dist/apps/core/.next/types/**/*.ts",
+    ".next/types/**/*.ts",
     "next-env.d.ts",
     "src/**/*.js",
     "src/**/*.jsx",
     "src/**/*.ts",
     "src/**/*.tsx",
-    ".next/types/**/*.ts"
+    "dist/types/**/*.ts"
   ],
   "exclude": [
     "out-tsc",

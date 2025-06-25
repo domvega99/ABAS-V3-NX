@@ -1,5 +1,5 @@
 {
-  "name": "@abasv3-nx/themes",
+  "name": "@abasv3/themes",
   "version": "0.0.1",
   "main": "./src/index.ts",
   "types": "./src/index.ts",

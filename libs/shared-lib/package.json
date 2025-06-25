@@ -1,5 +1,5 @@
 {
-  "name": "@abasv3-nx/shared-lib",
+  "name": "@abasv3/shared-lib",
   "version": "0.0.1",
   "main": "./src/index.ts",
   "types": "./src/index.ts",

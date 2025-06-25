@@ -26,6 +26,9 @@
     },
     {
       "path": "./libs/actions"
+    },
+    {
+      "path": "./libs/services"
     }
   ]
 }

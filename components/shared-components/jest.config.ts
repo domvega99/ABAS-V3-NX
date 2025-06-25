@@ -1,5 +1,5 @@
 export default {
-  displayName: '@abasv3-nx/shared-components',
+  displayName: '@abasv3/shared-components',
   preset: '../../jest.preset.js',
   transform: {
     '^(?!.*\\.(js|jsx|ts|tsx|css|json)$)': '@nx/react/plugins/jest',

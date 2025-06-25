@@ -3,7 +3,7 @@ import {
   CustomTextField,
   PageContainer,
   SingleSnackbar,
-} from '@abasv3-nx/shared-components';
+} from '@abasv3/shared-components';
 import HttpsOutlinedIcon from '@mui/icons-material/HttpsOutlined';
 import PermIdentityIcon from '@mui/icons-material/PermIdentity';
 import { LoadingButton } from '@mui/lab';
@@ -19,10 +19,10 @@ import InputAdornment from '@mui/material/InputAdornment';
 import { useFormik } from 'formik';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
-import { useActionState, useState } from 'react';
+import { useActionState, useEffect, useState } from 'react';
 import * as Yup from 'yup';
 import LoginBackground from '../../../../public/images/login-background.png';
-import { loginAction } from '@abasv3-nx/actions';
+import { loginAction } from '@abasv3/actions';
 
 const validationSchema = Yup.object({
   username: Yup.string().required('Username is required'),
@@ -31,6 +31,7 @@ const validationSchema = Yup.object({
 
 type LoginState = {
   error: string | null;
+  token?: string;
 };
 
 const initialState: LoginState = {
@@ -46,12 +47,21 @@ async function loginReducer(
 }
 
 const Page = () => {
-  const [state, formAction, isPending] = useActionState(loginReducer, initialState);
+  const [state, formAction, isPending] = useActionState(
+    loginReducer,
+    initialState
+  );
   const [snackbarOpen, setSnackbarOpen] = useState(false);
   const [error, setError] = useState('');
   const router = useRouter();
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
+
+  useEffect(() => {
+    if (state.token && !state.error) {
+      router.push('/');
+    }
+  }, [state.token, state.error, router]);
 
   const formik = useFormik({
     initialValues: {
@@ -59,16 +69,12 @@ const Page = () => {
       password: '',
     },
     validationSchema,
-    onSubmit: async (values) => {
+    onSubmit: async () => {
       try {
         await new Promise((res) => setTimeout(res, 1000));
-        if (values.username === 'admin' && values.password === 'admin') {
-          setError('');
-          setSnackbarOpen(true);
-          router.push('/');
-        } else {
-          throw new Error('Invalid username or password');
-        }
+        setError('');
+        setSnackbarOpen(true);
+        router.push('/');
       } catch (err: any) {
         setError(err.message);
         setSnackbarOpen(true);

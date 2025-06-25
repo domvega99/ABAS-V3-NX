@@ -1,5 +1,5 @@
 export default {
-  displayName: '@abasv3-nx/themes',
+  displayName: '@abasv3/themes',
   preset: '../../jest.preset.js',
   transform: {
     '^(?!.*\\.(js|jsx|ts|tsx|css|json)$)': '@nx/react/plugins/jest',
