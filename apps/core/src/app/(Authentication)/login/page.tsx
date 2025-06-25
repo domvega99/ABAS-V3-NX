@@ -19,16 +19,34 @@ import InputAdornment from '@mui/material/InputAdornment';
 import { useFormik } from 'formik';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
-import { useState } from 'react';
+import { useActionState, useState } from 'react';
 import * as Yup from 'yup';
 import LoginBackground from '../../../../public/images/login-background.png';
+import { loginAction } from '@abasv3-nx/actions';
 
 const validationSchema = Yup.object({
   username: Yup.string().required('Username is required'),
   password: Yup.string().required('Password is required'),
 });
 
+type LoginState = {
+  error: string | null;
+};
+
+const initialState: LoginState = {
+  error: null,
+};
+
+async function loginReducer(
+  _prevState: LoginState,
+  formData: FormData
+): Promise<LoginState> {
+  const result = await loginAction(formData);
+  return result ?? { error: null };
+}
+
 const Page = () => {
+  const [state, formAction, isPending] = useActionState(loginReducer, initialState);
   const [snackbarOpen, setSnackbarOpen] = useState(false);
   const [error, setError] = useState('');
   const router = useRouter();
@@ -47,7 +65,7 @@ const Page = () => {
         if (values.username === 'admin' && values.password === 'admin') {
           setError('');
           setSnackbarOpen(true);
-          router.push('/dashboard');
+          router.push('/');
         } else {
           throw new Error('Invalid username or password');
         }
@@ -144,7 +162,7 @@ const Page = () => {
                   </div>
                 </Box>
 
-                <form onSubmit={formik.handleSubmit}>
+                <form action={formAction}>
                   <Stack spacing={3}>
                     {/* Username Field */}
                     <Box>
@@ -167,6 +185,7 @@ const Page = () => {
                         value={formik.values.username}
                         onChange={formik.handleChange}
                         onBlur={formik.handleBlur}
+                        disabled={isPending}
                         error={
                           formik.touched.username &&
                           Boolean(formik.errors.username)
@@ -209,6 +228,7 @@ const Page = () => {
                         fullWidth
                         size="small"
                         variant="outlined"
+                        disabled={isPending}
                         value={formik.values.password}
                         onChange={formik.handleChange}
                         onBlur={formik.handleBlur}

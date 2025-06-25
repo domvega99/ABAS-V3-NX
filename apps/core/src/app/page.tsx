@@ -1,11 +1,19 @@
-import React from 'react'
+import { fetchPosts } from '@abasv3/actions'
 
-const Page = () => {
+export default async function Page() {
+  const posts = await fetchPosts()
+
   return (
     <div>
-      Home Page
+      <h1>Posts</h1>
+      <ul>
+        {posts.map(post => (
+          <li key={post.id}>
+            <h2>{post.title}</h2>
+            <p>{post.body}</p>
+          </li>
+        ))}
+      </ul>
     </div>
   )
 }
-
-export default Page

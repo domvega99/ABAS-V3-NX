@@ -23,6 +23,9 @@
     },
     {
       "path": "./components/themes"
+    },
+    {
+      "path": "./libs/actions"
     }
   ]
 }

@@ -1,7 +1,7 @@
-import { useSelector, useDispatch } from 'react-redux';
-import { RootState } from '../state/store';
-import { loadCurrentUser, loginFailure, loginRequest, loginSuccess, logout } from '../state/slice/authSlice';
 import { deleteCookie } from 'cookies-next';
+import { useDispatch, useSelector } from 'react-redux';
+import { loadCurrentUser, logout } from '../state/slice/authSlice';
+import { RootState } from '../state/store';
 // import { showUserById } from '../services/user';
 
 export const useAuth = () => {

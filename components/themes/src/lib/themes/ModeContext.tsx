@@ -1,7 +1,7 @@
 'use client';
 import CssBaseline from '@mui/material/CssBaseline';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
-import React, { createContext, useMemo, useState } from 'react';
+import React, { createContext, useMemo } from 'react';
 import { basedarkTheme, baselightTheme } from './theme-colors/DefaultColors';
 import { basedarkTheme2, baselightTheme2 } from './theme-colors/Theme2';
 
@@ -22,8 +22,10 @@ export const ModeContext = createContext<ModeContextType>({
 const ModeContextProvider: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
-  const [mode, setMode] = useState<'light' | 'dark'>('light');
-  const [theme, setTheme] = useState<'theme1' | 'theme2'>('theme1');
+  // const [mode, setMode] = useState<'light' | 'dark'>('light');
+  // const [theme, setTheme] = useState<'theme1' | 'theme2'>('theme1');
+  const mode = 'light'; // Placeholder for mode, replace with state if needed
+  const theme = 'theme1'; // Placeholder for theme, replace with state if needed
 
   // useEffect(() => {
   //   const storedMode = localStorage.getItem('mode') as 'light' | 'dark';

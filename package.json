@@ -1,5 +1,5 @@
 {
-  "name": "@abasv3-nx/source",
+  "name": "@abasv3/source",
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {},
@@ -76,7 +76,6 @@
     "next": "~15.2.4",
     "react": "19.0.0",
     "react-dom": "19.0.0",
-    "react-helmet-async": "^2.0.5",
     "react-is": "19.0.0",
     "react-redux": "^9.2.0",
     "styled-components": "5.3.6",
